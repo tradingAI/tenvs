@@ -5,9 +5,9 @@ import time
 import gym
 import numpy as np
 
-from tenv.envs.reward import get_reward_func
-from tenv.logger import logger
-from tenv.portfolio import Portfolio
+from tenvs.envs.reward import get_reward_func
+from tenvs.logger import logger
+from tenvs.portfolio import Portfolio
 
 
 class BaseEnv(gym.Env):

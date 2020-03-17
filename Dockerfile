@@ -38,13 +38,13 @@ ENV CODE_DIR /root/trade
 ARG BUILD_TIME
 ENV BUILD_TIME=${BUILD_TIME}
 
-# install tenv
+# install tenvs
 WORKDIR  $CODE_DIR
 RUN cd $CODE_DIR
-RUN rm -rf tenv
-RUN git clone https://github.com/iminders/tenv.git
+RUN rm -rf tenvs
+RUN git clone https://github.com/iminders/tenvs.git
 # Clean up pycache and pyc files
-RUN cd $CODE_DIR/tenv && rm -rf __pycache__ && \
+RUN cd $CODE_DIR/tenvs && rm -rf __pycache__ && \
     find . -name "*.pyc" -delete && \
     pip install -r requirements.txt && \
     pip install -e .
@@ -52,7 +52,7 @@ RUN cd $CODE_DIR/tenv && rm -rf __pycache__ && \
 RUN rm -rf /root/.cache/pip \
     && find / -type d -name __pycache__ -exec rm -r {} \+
 
-WORKDIR $CODE_DIR/tenv
+WORKDIR $CODE_DIR/tenvs
 
 ARG TUSHARE_TOKEN
 ENV TUSHARE_TOKEN=${TUSHARE_TOKEN}

@@ -1,7 +1,7 @@
 # -*- coding:utf-8 -*-
-from tenv.envs.average import AverageEnv
-from tenv.envs.multi_vol import MultiVolEnv
-from tenv.envs.simple import SimpleEnv
+from tenvs.envs.average import AverageEnv
+from tenvs.envs.multi_vol import MultiVolEnv
+from tenvs.envs.simple import SimpleEnv
 
 
 def make_env(scenario, market, investment, look_back_days,

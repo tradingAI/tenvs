@@ -1,6 +1,6 @@
 # -*- coding:utf-8 -*-
 
-from tenv.logger import logger
+from tenvs.logger import logger
 
 
 class Portfolio:

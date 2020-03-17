@@ -1,5 +1,5 @@
 # -*- coding:utf-8 -*-
-from tenv.logger import logger
+from tenvs.logger import logger
 
 mapping = {}
 
@@ -129,13 +129,13 @@ def get_reward_func(name):
     If you want to register your own reward function, you just need:
     Usage Example:
     -------------
-    from tenv.envs.reward import register
+    from tenvs.envs.reward import register
     @register("your_reward_function_name")
     def your_reward_function(**kwargs):
         ...
         return reward_fn
     """
-    logger.info("tenv.envs.reward use reward function: %s" % name)
+    logger.info("tenvs.envs.reward use reward function: %s" % name)
     if callable(name):
         return name
     elif name in mapping:

@@ -16,7 +16,7 @@ py_library(
         "scenario.py",
     ],
     deps = [
-        "//tenv:py_logger_lib",
+        "//tenvs:py_logger_lib",
     ],
 )
 

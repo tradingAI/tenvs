@@ -1,12 +1,12 @@
-# tenv
+# tenvs
 
 基于[OpenAI Gym](https://gym.openai.com/)的程序化交易环境模拟器, 旨在为沪深A股基于增强学习的交易算法提供方便使用, 接近真实市场的交易环境
 
-基于tenv的RL算法baselines repo: [tbase](https://github.com/iminders/tbase)
+基于tenvs的RL算法baselines repo: [tbase](https://github.com/iminders/tbase)
 
 ## Features
 
-- 自动从tushare下载数据, 不需要你织组数据，已经下载的数据(默认目录"/tmp/tenv")不会重复下载
+- 自动从tushare下载数据, 不需要你织组数据，已经下载的数据(默认目录"/tmp/tenvs")不会重复下载
 - 撮合规则:
 
   - 基于最高，最低价成交
@@ -29,8 +29,8 @@
 **安装**
 
 ```
-git clone https://github.com/iminders/tenv
-cd tenv
+git clone https://github.com/iminders/tenvs
+cd tenvs
 pip install -r requirements.txt
 pip install -e .
 ```
@@ -43,7 +43,7 @@ pip install -e .
 export TUSHARE_TOKEN=YOUR_TOKEN
 ```
 
-[Examples](tenv/envs)
+[Examples](tenvs/envs)
 
 场景                   | 实现           | action                                           | observation | reward | 使用例子
 -------------------- | ------------ | ------------------------------------------------ | ----------- | ------ | -----------------
@@ -57,7 +57,7 @@ export TUSHARE_TOKEN=YOUR_TOKEN
 - [x] 多支股票, 均匀分仓操作
 - [x] 多支股票，支持仓位控制
 
-[reward functions](tenv/envs/reward.py):
+[reward functions](tenvs/envs/reward.py):
 
 - [x] simple: 盈利=1,否则=-1
 - [x] daily_return: 每日的收益率
@@ -75,7 +75,7 @@ export TUSHARE_TOKEN=YOUR_TOKEN
 
 ### 扩展Scenario
 
-可以参考[average.py](tenv/envs/average.py)的写法
+可以参考[average.py](tenvs/envs/average.py)的写法
 
 - 定义action
 - 定义observation

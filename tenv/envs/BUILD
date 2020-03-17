@@ -10,7 +10,7 @@ py_library(
         "simple.py",
     ],
     deps = [
-        "//tenv:py_logger_lib",
+        "//tenvs:py_logger_lib",
     ],
 )
 
@@ -21,8 +21,8 @@ py_test(
     ],
     deps = [
         ":py_default_lib",
-        "//tenv:py_default_lib",
-        "//tenv:py_logger_lib",
+        "//tenvs:py_default_lib",
+        "//tenvs:py_logger_lib",
     ],
 )
 
@@ -33,8 +33,8 @@ py_test(
     ],
     deps = [
         ":py_default_lib",
-        "//tenv:py_default_lib",
-        "//tenv:py_logger_lib",
+        "//tenvs:py_default_lib",
+        "//tenvs:py_logger_lib",
     ],
 )
 
@@ -45,8 +45,8 @@ py_test(
     ],
     deps = [
         ":py_default_lib",
-        "//tenv:py_default_lib",
-        "//tenv:py_logger_lib",
+        "//tenvs:py_default_lib",
+        "//tenvs:py_logger_lib",
     ],
 )
 
@@ -57,6 +57,6 @@ py_test(
     ],
     deps = [
         ":py_default_lib",
-        "//tenv:py_logger_lib",
+        "//tenvs:py_logger_lib",
     ],
 )

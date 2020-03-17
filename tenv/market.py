@@ -4,7 +4,7 @@ import os
 import pandas as pd
 import tushare as ts
 
-from tenv.logger import logger
+from tenvs.logger import logger
 
 
 class Market:
@@ -27,7 +27,7 @@ class Market:
                  end="20200101",
                  codes=["000001.SZ"],
                  indexs=["000001.SH", "399001.SZ"],
-                 data_dir="/tmp/tenv"):
+                 data_dir="/tmp/tenvs"):
         ts.set_token(ts_token)
         self.start = start
         self.end = end

@@ -6,8 +6,8 @@ services:
     environment:
       TUSHARE_TOKEN: ${TUSHARE_TOKEN}
     command:
-      bash /root/tenv/docker-compose.sh
+      bash /root/tenvs/docker-compose.sh
     volumes:
-      - .:/root/tenv
+      - .:/root/tenvs
       - ${BAZEL_USER_ROOT}:/root/cache/bazel
       - ${OUTPUT_DIR}:/root/output

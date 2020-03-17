@@ -1,6 +1,6 @@
 import unittest
 
-from tenv.envs.reward import get_reward_func, mean_squared_error
+from tenvs.envs.reward import get_reward_func, mean_squared_error
 
 
 class TestReward(unittest.TestCase):

@@ -10,8 +10,8 @@ import matplotlib.dates as mdates
 import matplotlib.pyplot as plt
 from pandas.plotting import register_matplotlib_converters
 
-from tenv.envs.simple import SimpleEnv
-from tenv.market import Market
+from tenvs.envs.simple import SimpleEnv
+from tenvs.market import Market
 
 logging.root.setLevel(logging.INFO)
 register_matplotlib_converters()
@@ -21,14 +21,14 @@ class TestSimple(unittest.TestCase):
     @classmethod
     def setUpClass(self):
         # NOTE: 需要在环境变量中设置 TUSHARE_TOKEN
-        ts_token = os.getenv("TUSHARE_TOKEN")
+        ts_token = os.getenvs("TUSHARE_TOKEN")
         self.start = "20190101"
         self.end = "20200101"
         self.codes = ["000001.SZ"]
         self.indexs = ["000001.SH", "399001.SZ"]
         # self.indexs = []
         self.show_plot = False
-        self.data_dir = "/tmp/tenv"
+        self.data_dir = "/tmp/tenvs"
         self.m = Market(
             ts_token=ts_token,
             start=self.start,

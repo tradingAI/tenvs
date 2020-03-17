@@ -1,9 +1,9 @@
 from setuptools import find_packages, setup
 
-setup(name='tenv',
+setup(name='tenvs',
       version='0.0.1',
       description='',
-      url='https://github.com/iminders/tenv',
+      url='https://github.com/iminders/tenvs',
       author='iminders',
       author_email='liuwen.w@qq.com',
       packages=find_packages(),

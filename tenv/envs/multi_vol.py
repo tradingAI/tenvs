@@ -2,8 +2,8 @@
 
 import numpy as np
 
-from tenv.envs.base import BaseEnv
-from tenv.logger import logger
+from tenvs.envs.base import BaseEnv
+from tenvs.logger import logger
 
 
 class MultiVolEnv(BaseEnv):
