@@ -21,7 +21,7 @@ class TestSimple(unittest.TestCase):
     @classmethod
     def setUpClass(self):
         # NOTE: 需要在环境变量中设置 TUSHARE_TOKEN
-        ts_token = os.getenvs("TUSHARE_TOKEN")
+        ts_token = os.getenv("TUSHARE_TOKEN")
         self.start = "20190101"
         self.end = "20200101"
         self.codes = ["000001.SZ"]
