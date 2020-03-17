@@ -1,0 +1,13 @@
+version: '3.0'
+
+services:
+  bazel:
+    image: registry.cn-hangzhou.aliyuncs.com/aiminders/tgym:latest
+    environment:
+      TUSHARE_TOKEN: ${TUSHARE_TOKEN}
+    command:
+      bash /root/tenv/docker-compose.sh
+    volumes:
+      - .:/root/tenv
+      - ${BAZEL_USER_ROOT}:/root/cache/bazel
+      - ${OUTPUT_DIR}:/root/output

@@ -1,0 +1,9 @@
+scipy
+numpy==1.16.0
+pandas==0.25.3
+tushare
+gym
+requests
+beautifulsoup4
+lxml
+matplotlib==3.1.3
