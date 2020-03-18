@@ -39,8 +39,7 @@ ENV BUILD_TIME=${BUILD_TIME}
 
 # install tenvs
 WORKDIR  $CODE_DIR
-RUN cd $CODE_DIR
-RUN rm -rf tenvs
+RUN cd $CODE_DIR && rm -rf tenvs
 RUN git clone https://github.com/iminders/tenvs.git
 # Clean up pycache and pyc files
 RUN cd $CODE_DIR/tenvs && rm -rf __pycache__ && \
