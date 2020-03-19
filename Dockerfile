@@ -1,4 +1,4 @@
-# https://github.com/iminders/bazel/blob/master/Dockerfile
+# https://github.com/iminders/docker/blob/master/Dockerfile
 FROM registry.cn-hangzhou.aliyuncs.com/aiminders/bazel:latest
 
 RUN apt-get -y update --fix-missing && \
@@ -40,7 +40,7 @@ ENV BUILD_TIME=${BUILD_TIME}
 # install tenvs
 WORKDIR  $CODE_DIR
 RUN cd $CODE_DIR && rm -rf tenvs
-RUN git clone https://github.com/iminders/tenvs.git
+RUN git clone https://github.com/tradingAI/tenvs.git
 # Clean up pycache and pyc files
 RUN cd $CODE_DIR/tenvs && rm -rf __pycache__ && \
     find . -name "*.pyc" -delete && \

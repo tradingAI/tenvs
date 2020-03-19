@@ -1,6 +1,5 @@
 from setuptools import find_packages, setup
 
-
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
@@ -8,7 +7,7 @@ with open("README.md", "r") as fh:
 setup(name='tenvs',
       version='1.0.0',
       description='',
-      url='https://github.com/iminders/tenvs',
+      url='https://github.com/tradingAI/tenvs',
       author='liuwen',
       author_email='liuwen.w@qq.com',
       long_description=long_description,
