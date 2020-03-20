@@ -24,7 +24,7 @@
 
 **安装方式一(直接使用):** `pip install tenvs`
 
-**安装方式二(如果需要更改源码)**
+**安装方式二(开发者模式)**
 ```
 git clone https://github.com/tradingAI/tenvs
 cd tenvs
