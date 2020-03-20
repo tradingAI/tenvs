@@ -4,6 +4,25 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 
+def read_install_requires():
+    reqs = [
+            'pandas>=0.18.0',
+            'requests>=2.0.0',
+            'lxml>=3.8.0',
+            'simplejson>=3.16.0',
+            'msgpack>=0.5.6',
+            'pyzmq>=16.0.0',
+            'gym',
+            'numpy==1.16.0',
+            'pandas==0.25.3',
+            'beautifulsoup4',
+            'matplotlib==3.1.3',
+            'scipy',
+            'tushare'
+            ]
+    return reqs
+
+
 setup(name='tenvs',
       version='1.0.0',
       description='',
@@ -21,5 +40,5 @@ setup(name='tenvs',
         "Operating System :: OS Independent",
         ],
       python_requires='>=3',
-      install_requires=[]
+      install_requires=read_install_requires(),
       )
