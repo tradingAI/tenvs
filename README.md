@@ -67,6 +67,8 @@ export TUSHARE_TOKEN=YOUR_TOKEN
 - Add or change code && **Please add tests for changes**
 - Test
   - step1. 设置[docker-compose](docker-compose.yml)需要的环境变量: BAZEL_USER_ROOT, OUTPUT_DIR, TUSHARE_TOKEN
+    - 默认使用[docker hub 镜像](https://hub.docker.com/repository/docker/tradingai/tenvs)
+    - 阿里云镜像: `registry.cn-hangzhou.aliyuncs.com/tradingai/tenvs:latest`
   - step2. `docker-compose up`
 - Send pull request
 
