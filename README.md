@@ -22,12 +22,9 @@
 
 支持: MacOS/Linux(window未测试), python 2.7, python 3.5+, 推荐使用 python3.7
 
-**依赖**
+**安装方式一(直接使用):** `pip install tenvs`
 
-[tushare](https://github.com/waditu/tushare), [gym](https://github.com/openai/gym)
-
-**安装**
-
+**安装方式二(如果需要更改源码)**
 ```
 git clone https://github.com/tradingAI/tenvs
 cd tenvs
