@@ -5,7 +5,7 @@ echo `pwd`
 
 export BAZEL_RUNID=$RANDOM
 
-bazel --batch \
+sudo bazel --batch \
       --output_user_root=/root/cache/bazel \
       test --package_path=/root/tenvs \
            --spawn_strategy=standalone \
