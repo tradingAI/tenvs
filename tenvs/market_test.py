@@ -19,7 +19,7 @@ class TestMarket(unittest.TestCase):
         self.codes = ["000001.SZ"]
         self.indexs = ["000001.SH", "399001.SZ"]
         # self.indexs = []
-        self.data_dir = "/tmp/tenvs"
+        self.data_dir = "/tmp/market"
         self.m = Market(
             ts_token=ts_token,
             start=self.start,
