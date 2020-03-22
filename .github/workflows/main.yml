@@ -40,3 +40,4 @@ jobs:
         mkdir -p /home/runner/OUTPUT_DIR
         export OUTPUT_DIR=/home/runner/OUTPUT_DIR
         docker-compose up
+        echo `ls -l /home/runner/BAZEL_USER_ROOT`
