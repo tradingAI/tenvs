@@ -25,17 +25,15 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: cache_user_root
-      id: BAZEL_USER_ROOT
+      id: cache_user_root_dir
       - uses: actions/cache@v1
-        name: Cache /home/runner/BAZEL_USER_ROOT
         with:
           path: /home/runner/BAZEL_USER_ROOT
           key: BAZEL_USER_ROOT
 
     - name: cache_output
-      id: OUTPUT_DIR
+      id: cache_output_dir
       - uses: actions/cache@v1
-        name: Cache /home/runner/OUTPUT_DIR
         with:
           path: /home/runner/OUTPUT_DIR
           key: OUTPUT_DIR
