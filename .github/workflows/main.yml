@@ -39,5 +39,5 @@ jobs:
         export BAZEL_USER_ROOT=/home/runner/BAZEL_USER_ROOT
         mkdir -p /home/runner/OUTPUT_DIR
         export OUTPUT_DIR=/home/runner/OUTPUT_DIR
-        docker-compose up --exit-code-from api
+        docker-compose up --exit-code-from bazel
         echo `ls -l /home/runner/BAZEL_USER_ROOT`
