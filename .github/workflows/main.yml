@@ -29,8 +29,10 @@ jobs:
       run: |
         echo `whoami`
         mkdir -p /home/runner/BAZEL_USER_ROOT
+        chmod -R 777 /home/runner/BAZEL_USER_ROOT
         export BAZEL_USER_ROOT=/home/runner/BAZEL_USER_ROOT
         mkdir -p /home/runner/OUTPUT_DIR
+        chmod -R 777 /home/runner/OUTPUT_DIR
         export OUTPUT_DIR=/home/runner/OUTPUT_DIR
         export TUSHARE_TOKEN=${{ secrets.TUSHARE_TOKEN }}
         docker-compose up
