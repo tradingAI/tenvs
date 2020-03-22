@@ -1,6 +1,8 @@
 set -e
 cd "$(dirname "$0")"
 
+echo `pwd`
+
 export BAZEL_RUNID=$RANDOM
 
 bazel --batch \
