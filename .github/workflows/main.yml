@@ -24,7 +24,8 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
 
-    - name: init
+    # Runs a set of commands using the runners shell
+    - name: unit-test
       run: |
         echo `whoami`
         export TUSHARE_TOKEN=${{ secrets.TUSHARE_TOKEN }}
@@ -34,9 +35,5 @@ jobs:
         mkdir -p /home/runner/OUTPUT_DIR
         chmod -R 777 /home/runner/OUTPUT_DIR
         export OUTPUT_DIR=/home/runner/OUTPUT_DIR
-
-    # Runs a set of commands using the runners shell
-    - name: unit-test
-      run: |
         echo `pwd`
         docker-compose up
