@@ -3,6 +3,9 @@ cd "$(dirname "$0")"
 
 echo `pwd`
 
+chmod -R 777 /root/cache/bazel
+chmod -R 777 /root/output
+
 export BAZEL_RUNID=$RANDOM
 
 bazel --batch \
