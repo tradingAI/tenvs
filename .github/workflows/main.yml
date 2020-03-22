@@ -30,7 +30,7 @@ jobs:
       run: |
         echo `whoami`
         export TUSHARE_TOKEN=${{ secrets.TUSHARE_TOKEN }}
-        bash docker-compose.sh
+        bash /__w/tenvs/tenvs/docker-compose.sh
 
 # mkdir -p /home/runner/BAZEL_USER_ROOT
 # chmod -R 777 /home/runner/BAZEL_USER_ROOT
