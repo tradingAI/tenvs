@@ -26,17 +26,17 @@ jobs:
 
     - name: cache_user_root
       id: cache_user_root_dir
-      - uses: actions/cache@v1
-        with:
-          path: /home/runner/BAZEL_USER_ROOT
-          key: BAZEL_USER_ROOT
+      uses: actions/cache@v1
+      with:
+        path: /home/runner/BAZEL_USER_ROOT
+        key: BAZEL_USER_ROOT
 
     - name: cache_output
       id: cache_output_dir
-      - uses: actions/cache@v1
-        with:
-          path: /home/runner/OUTPUT_DIR
-          key: OUTPUT_DIR
+      uses: actions/cache@v1
+      with:
+        path: /home/runner/OUTPUT_DIR
+        key: OUTPUT_DIR
 
     # Runs a set of commands using the runners shell
     - name: unit-test
