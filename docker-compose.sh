@@ -1,11 +1,12 @@
-set -e
-cd "$(dirname "$0")"
+# set -e
+# cd "$(dirname "$0")"
 
 echo `pwd`
 
 export BAZEL_RUNID=$RANDOM
+echo $BAZEL_RUNID
 
-sudo bazel --batch \
+bazel --batch \
       --output_user_root=/root/cache/bazel \
       test --package_path=/root/tenvs \
            --spawn_strategy=standalone \
