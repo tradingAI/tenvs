@@ -31,6 +31,13 @@ jobs:
     #     path: /home/runner/BAZEL_USER_ROOT
     #     key: bazel_user_root
 
+    - name: cache_tmp_tenvs
+      id: cache_tmp_tenvs_dir
+      uses: actions/cache@v1
+      with:
+        path: /tmp/tenvs
+        key: tmp_tenvs
+
     # Runs a set of commands using the runners shell
     - name: unit-test
       run: |
