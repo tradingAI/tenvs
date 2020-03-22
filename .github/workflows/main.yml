@@ -24,17 +24,21 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
 
-    - uses: actions/cache@v1
-      name: Cache /home/runner/BAZEL_USER_ROOT
-      with:
-        path: /home/runner/BAZEL_USER_ROOT
-        key: BAZEL_USER_ROOT
+    - name: cache_user_root
+      id: BAZEL_USER_ROOT
+      - uses: actions/cache@v1
+        name: Cache /home/runner/BAZEL_USER_ROOT
+        with:
+          path: /home/runner/BAZEL_USER_ROOT
+          key: BAZEL_USER_ROOT
 
-    - uses: actions/cache@v1
-      name: Cache /home/runner/OUTPUT_DIR
-      with:
-        path: /home/runner/OUTPUT_DIR
-        key: OUTPUT_DIR
+    - name: cache_output
+      id: OUTPUT_DIR
+      - uses: actions/cache@v1
+        name: Cache /home/runner/OUTPUT_DIR
+        with:
+          path: /home/runner/OUTPUT_DIR
+          key: OUTPUT_DIR
 
     # Runs a set of commands using the runners shell
     - name: unit-test
