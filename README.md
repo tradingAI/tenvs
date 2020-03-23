@@ -1,4 +1,4 @@
-# tenvs ![CI](https://github.com/tradingAI/tenvs/workflows/CI/badge.svg?branch=master) 
+# tenvs ![CI](https://github.com/tradingAI/tenvs/workflows/CI/badge.svg?branch=master)
 
 
 基于[OpenAI Gym](https://gym.openai.com/)的程序化交易环境模拟器, 旨在为沪深A股基于增强学习的交易算法提供方便使用, 接近真实市场的交易环境
@@ -21,7 +21,7 @@
 
 ## 安装指南
 
-支持: MacOS/Linux(window未测试), python 2.7, python 3.5+, 推荐使用 python3.7
+支持: MacOS/Linux/Windows, python 3.5+, 推荐使用 python3.7
 
 **安装方式一(直接使用):** `pip install tenvs`
 
@@ -84,10 +84,10 @@ export TUSHARE_TOKEN=YOUR_TOKEN
 ## TODO List(欢迎一起完善)
 
 - [x] [Bazel build](https://bazel.build/)
-- [ ] 更全面的测试用例
+- [ ] 测试: 提升 unit test 覆盖率
 - [ ] 场景增加
 
-  - [ ] 增加更多, 更有效的reward函数
+  - [ ] 增加的reward函数(在不同的算法上的表现差异)
   - [ ] 增加observation中信息(因子挖掘)
 
 线上交流方式
