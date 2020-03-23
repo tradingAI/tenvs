@@ -1,0 +1,38 @@
+name: Deploy
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Run test in docker container
+        env:
+          BAZEL_USER_ROOT: /home/runner/BAZEL_USER_ROOT
+          OUTPUT_DIR: /home/runner/OUTPUT_DIR
+          TUSHARE_TOKEN: ${{ secrets.TUSHARE_TOKEN }}
+        run: |
+          sudo mkdir -p $BAZEL_USER_ROOT
+          sudo mkdir -p $OUTPUT_DIR
+          docker-compose up --exit-code-from bazel bazel
+
+  build:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: docker build
+        run: bash build-docker-image.sh
+
+      - name: docker login
+        run: echo "${{ secrets.ALI_DOCKER_PASSWORD }}" | docker login -u ${{ secrets.ALI_DOCKER_USERNAME }} registry.cn-hangzhou.aliyuncs.com --password-stdin
+
+      - name: docker push-logout
+        run: |
+          docker push registry.cn-hangzhou.aliyuncs.com/tradingai/tenvs:latest
+          docker logout
