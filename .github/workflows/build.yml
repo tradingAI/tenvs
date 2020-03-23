@@ -30,9 +30,9 @@ jobs:
         run: bash build-docker-image.sh
 
       - name: docker login
-        run: echo "${{ secrets.ALI_DOCKER_PASSWORD }}" | docker login -u ${{ secrets.ALI_DOCKER_USERNAME }} registry.cn-hangzhou.aliyuncs.com --password-stdin
+        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
 
       - name: docker push-logout
         run: |
-          docker push registry.cn-hangzhou.aliyuncs.com/tradingai/tenvs:latest
+          docker push tradingai/tenvs:latest
           docker logout
