@@ -9,5 +9,5 @@ services:
       bash /root/tenvs/docker-compose.sh
     volumes:
       - .:/root/tenvs
-      # - ${BAZEL_USER_ROOT}:/root/cache/bazel
-      # - ${OUTPUT_DIR}:/root/output
+      - ${BAZEL_USER_ROOT}:/root/cache/bazel
+      - ${OUTPUT_DIR}:/root/output
