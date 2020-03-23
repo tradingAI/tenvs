@@ -76,7 +76,10 @@ class Market:
         for code in self.codes:
             dir = os.path.join(self.data_dir, code)
             if not os.path.exists(dir):
-                os.makedirs(dir)
+                try:
+                    os.makedirs(dir)
+                except OSError:
+                    pass
             data_path = os.path.join(dir,
                                      self.start + "-" + self.end + ".csv")
             if os.path.exists(data_path):
