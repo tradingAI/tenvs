@@ -12,8 +12,8 @@ jobs:
       env:
         BAZEL_USER_ROOT: /home/runner/BAZEL_USER_ROOT
         OUTPUT_DIR: /home/runner/OUTPUT_DIR
+        TUSHARE_TOKEN: ${{ secrets.TUSHARE_TOKEN }}
       run: |
-        export TUSHARE_TOKEN=${{ secrets.TUSHARE_TOKEN }}
         mkdir -p $BAZEL_USER_ROOT
         mkdir -p $OUTPUT_DIR
         docker-compose up --exit-code-from bazel bazel
