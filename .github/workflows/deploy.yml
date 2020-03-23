@@ -11,12 +11,13 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Run test in docker container
+        env:
+          BAZEL_USER_ROOT: /home/runner/BAZEL_USER_ROOT
+          OUTPUT_DIR: /home/runner/OUTPUT_DIR
+          TUSHARE_TOKEN: ${{ secrets.TUSHARE_TOKEN }}
         run: |
-          export TUSHARE_TOKEN=${{ secrets.TUSHARE_TOKEN }}
-          mkdir -p /home/runner/BAZEL_USER_ROOT
-          export BAZEL_USER_ROOT=/home/runner/BAZEL_USER_ROOT
-          mkdir -p /home/runner/OUTPUT_DIR
-          export OUTPUT_DIR=/home/runner/OUTPUT_DIR
+          sudo mkdir -p $BAZEL_USER_ROOT
+          sudo mkdir -p $OUTPUT_DIR
           docker-compose up --exit-code-from bazel bazel
 
   build:
