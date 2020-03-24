@@ -87,7 +87,7 @@ export TUSHARE_TOKEN=YOUR_TOKEN
 ## TODO List(欢迎一起完善)
 
 - [x] [Bazel build](https://bazel.build/)
-- [ ] 测试: 提升 unit test 覆盖率
+- [ ] 测试: 提升 unit test 覆盖率([coveralls.io](https://coveralls.io/))
 - [ ] 场景增加
 
   - [ ] 增加的reward函数(在不同的算法上的表现差异)
