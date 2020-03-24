@@ -1,6 +1,26 @@
 ![CI](https://github.com/tradingAI/tenvs/workflows/CI/badge.svg?branch=master)
 
-[![PyPI version fury.io](https://badge.fury.io/py/ansicolortags.svg)](https://pypi.python.org/pypi/ansicolortags/)
+=================
+PyPI
+=================
+
+.. image:: https://pypip.in/d/blackhole/badge.svg
+        :target: https://pypi.python.org/pypi/blackhole/
+
+.. image:: https://pypip.in/v/blackhole/badge.svg
+        :target: https://pypi.org/project/tenvs/
+
+.. image:: https://pypip.in/egg/blackhole/badge.svg
+        :target: https://pypi.org/project/tenvs/
+
+.. image:: https://pypip.in/wheel/blackhole/badge.svg
+        :target: https://pypi.org/project/tenvs/
+
+.. image:: https://pypip.in/license/blackhole/badge.svg
+        :target: https://pypi.org/project/tenvs/
+
+
+
 
 # tenvs
 
