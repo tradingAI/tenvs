@@ -1,4 +1,7 @@
-# tenvs ![CI](https://github.com/tradingAI/tenvs/workflows/CI/badge.svg?branch=master)
+![CI](https://github.com/tradingAI/tenvs/workflows/CI/badge.svg?branch=master)
+[![PyPI version](https://badge.fury.io/py/tenvs.svg)](https://badge.fury.io/py/tenvs)
+[![Coverage Status](https://coveralls.io/repos/github/tradingAI/tenvs/badge.svg?branch=master)](https://coveralls.io/github/tradingAI/tenvs?branch=master)
+# tenvs
 
 
 基于[OpenAI Gym](https://gym.openai.com/)的程序化交易环境模拟器, 旨在为沪深A股基于增强学习的交易算法提供方便使用, 接近真实市场的交易环境
@@ -84,7 +87,7 @@ export TUSHARE_TOKEN=YOUR_TOKEN
 ## TODO List(欢迎一起完善)
 
 - [x] [Bazel build](https://bazel.build/)
-- [ ] 测试: 提升 unit test 覆盖率
+- [ ] 测试: 提升 unit test 覆盖率([coveralls.io](https://coveralls.io/))
 - [ ] 场景增加
 
   - [ ] 增加的reward函数(在不同的算法上的表现差异)
