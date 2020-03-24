@@ -1,27 +1,6 @@
 ![CI](https://github.com/tradingAI/tenvs/workflows/CI/badge.svg?branch=master)
-
-=================
-PyPI
-=================
-
-.. image:: https://pypip.in/d/blackhole/badge.svg
-        :target: https://pypi.python.org/pypi/blackhole/
-
-.. image:: https://pypip.in/v/blackhole/badge.svg
-        :target: https://pypi.org/project/tenvs/
-
-.. image:: https://pypip.in/egg/blackhole/badge.svg
-        :target: https://pypi.org/project/tenvs/
-
-.. image:: https://pypip.in/wheel/blackhole/badge.svg
-        :target: https://pypi.org/project/tenvs/
-
-.. image:: https://pypip.in/license/blackhole/badge.svg
-        :target: https://pypi.org/project/tenvs/
-
-
-
-
+[![PyPI version](https://badge.fury.io/py/tenvs.svg)](https://badge.fury.io/py/tenvs)
+[![Coverage Status](https://coveralls.io/repos/github/tradingAI/tenvs/badge.svg?branch=master)](https://coveralls.io/github/tradingAI/tenvs?branch=master)
 # tenvs
 
 
