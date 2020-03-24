@@ -20,7 +20,7 @@
 
 - 有拆分时，会根据复权因子对持仓进行相应的倍增, 以保持与真实市场一致
 
-- gym.step() 比OpenAI gym多返回一个名为rewards的list, 包含每支股票的reward, 以方便Multi-Agent算法实现
+- step() 比OpenAI gym多返回一个名为rewards的list, 包含每支股票的reward, 以方便Multi-Agent算法实现
 
 ## 安装指南
 
@@ -90,7 +90,7 @@ export TUSHARE_TOKEN=YOUR_TOKEN
 - [ ] 测试: 提升 unit test 覆盖率([coveralls.io](https://coveralls.io/))
 - [ ] 场景增加
 
-  - [ ] 增加的reward函数(在不同的算法上的表现差异)
+  - [ ] 增加的reward函数(Blog post在不同的算法上的表现性能比较)
   - [ ] 增加observation中信息(因子挖掘)
 
 线上交流方式
