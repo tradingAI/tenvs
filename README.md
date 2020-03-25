@@ -1,6 +1,6 @@
 ![CI](https://github.com/tradingAI/tenvs/workflows/CI/badge.svg?branch=master)
 [![PyPI version](https://badge.fury.io/py/tenvs.svg)](https://badge.fury.io/py/tenvs)
-[![Coverage Status](https://coveralls.io/repos/github/tradingAI/tenvs/badge.svg?branch=master)](https://coveralls.io/github/tradingAI/tenvs?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/tradingAI/tenvs/badge.svg?branch=master)](https://coveralls.io/github/tradingAI/tenvs?branch=master) [![Join the chat at https://gitter.im/tradingAI/tenvs](https://badges.gitter.im/tradingAI/tenvs.svg)](https://gitter.im/tradingAI/tenvs?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 # tenvs
 
 
