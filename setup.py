@@ -24,7 +24,7 @@ def read_install_requires():
 
 
 setup(name='tenvs',
-      version='1.0.2',
+      version='1.0.3',
       description='',
       url='https://github.com/tradingAI/tenvs',
       author='liuwen',
