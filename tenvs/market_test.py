@@ -71,6 +71,29 @@ class TestMarket(unittest.TestCase):
         self.assertTrue(ok)
         self.assertEqual(16.97, price)
 
+    def test_top_pct_change(self):
+        # 涨跌停
+        ts_token = os.getenv("TUSHARE_TOKEN")
+        codes = ["600237.SH"]
+        # self.indexs = []
+        m = Market(
+            ts_token=ts_token,
+            start=self.start,
+            end=self.end,
+            codes=codes,
+            indexs=self.indexs,
+            data_dir=self.data_dir)
+        code = "600237.SH"
+        datestr = "20190701"
+        ok, price = m.buy_check(code=code, datestr=datestr,
+                                bid_price=4.5)
+        self.assertFalse(ok)
+        ok, price = m.sell_check(code=code, datestr=datestr,
+                                 bid_price=4.5)
+        self.assertTrue(ok)
+        # 封涨停, 以涨停价成交
+        self.assertEqual(4.55, price)
+
     def test_sell_check(self):
         code = "000001.SZ"
         # is_suspended
