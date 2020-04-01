@@ -11,3 +11,4 @@ bazel-*
 tests/
 dist/
 build/
+logs/

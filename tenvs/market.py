@@ -40,6 +40,10 @@ class Market:
         self.equity_hfq_info_start_index = 10
         self.init_market_info()
         self.init_size_info()
+        # 涨停判断
+        # NOTE(wen): 如果涨跌幅超过 top_pct_change则认为到达涨跌停的状态
+        # TODO: 准确的涨跌停判断方式
+        self.top_pct_change = 9.7
 
     def get_info_size(self, info_name):
         date = self.open_dates[0]
