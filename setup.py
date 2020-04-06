@@ -6,7 +6,6 @@ with open("README.md", "r") as fh:
 
 def read_install_requires():
     reqs = [
-            'pandas>=0.18.0',
             'requests>=2.0.0',
             'lxml>=3.8.0',
             'simplejson>=3.16.0',
