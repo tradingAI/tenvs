@@ -27,7 +27,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: docker build
-        run: docker build . -t tradingai/bazel:latest
+        run: docker build . -t tradingai/tenvs:latest
 
       - name: docker login
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
