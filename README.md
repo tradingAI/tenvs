@@ -33,7 +33,6 @@
 ```
 git clone https://github.com/tradingAI/tenvs
 cd tenvs
-pip install -r requirements.txt
 pip install -e .
 ```
 
