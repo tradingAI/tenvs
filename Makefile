@@ -1,4 +1,4 @@
-.PHONY: install update test
+.PHONY: install update test dist upload clean
 
 install:
 	pip3 install -e . --user
