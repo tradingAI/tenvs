@@ -6,24 +6,23 @@ with open("README.md", "r") as fh:
 
 def read_install_requires():
     reqs = [
-            'requests>=2.0.0',
-            'lxml>=3.8.0',
-            'simplejson>=3.16.0',
-            'msgpack>=0.5.6',
-            'pyzmq>=16.0.0',
+            'beautifulsoup4',
             'gym',
+            'lxml>=3.8.0',
+            'matplotlib==3.1.3',
+            'msgpack>=0.5.6',
             'numpy==1.16.0',
             'pandas==0.25.3',
-            'beautifulsoup4',
-            'matplotlib==3.1.3',
+            'pyzmq>=16.0.0',
+            'requests>=2.0.0',
             'scipy',
-            'tushare'
-            ]
+            'simplejson>=3.16.0',
+            'tushare']
     return reqs
 
 
 setup(name='tenvs',
-      version='1.0.3',
+      version='1.0.4',
       description='',
       url='https://github.com/tradingAI/tenvs',
       author='liuwen',
