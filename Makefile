@@ -1,4 +1,4 @@
-.PHONY: install update test dist upload clean
+.PHONY: install update test upload lint
 
 install:
 	pip3 install -e . --user
@@ -10,12 +10,12 @@ update:
 test:
 	docker-compose up
 
-dist:
-	python3 setup.py sdist bdist_wheel
-
 upload:
+	python3 setup.py sdist bdist_wheel
 	python3 -m twine upload dist/*
-
-clean:
 	rm -rf build
 	rm -rf dist
+
+lint:
+	buildifier WORKSPACE
+	find ./ -name 'BUILD' | xargs buildifier

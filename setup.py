@@ -1,4 +1,13 @@
+import codecs
+import os
+
 from setuptools import find_packages, setup
+
+
+def read(fname):
+    return codecs.open(os.path.join(
+        os.path.dirname(__file__), fname)).read().strip()
+
 
 with open("README.md", "r") as fh:
     long_description = fh.read()
@@ -22,7 +31,7 @@ def read_install_requires():
 
 
 setup(name='tenvs',
-      version='1.0.4',
+      version=read('tenvs/VERSION.txt'),
       description='',
       url='https://github.com/tradingAI/tenvs',
       author='liuwen',
