@@ -1,6 +1,5 @@
 # -*- coding:utf-8 -*-
 import random
-import time
 
 import gym
 import numpy as np
@@ -43,7 +42,12 @@ class BaseEnv(gym.Env):
             size += self.market.get_info_size(info_name)
         return size
 
-    def _init_current_time_id(self):
+    def _init_current_time_id(self, infer=False):
+        if infer is True:
+            init_index = len(self.dates) - 1
+            if self.end == self.dates[-1]:
+                init_index = init_index - 1
+            return init_index
         return self.look_back_days
 
     def get_market_info(self, date):
@@ -164,12 +168,12 @@ class BaseEnv(gym.Env):
         for i in range(self.n):
             self.portfolios[i].update_value_percent(self.portfolio_value)
 
-    def get_init_obs():
+    def get_init_obs(self, infer=False):
         raise NotImplementedError
 
-    def reset(self):
+    def reset(self, infer=False):
         # 当前时间
-        self.current_time_id = self._init_current_time_id()
+        self.current_time_id = self._init_current_time_id(infer)
         self.current_date = self.dates[self.current_time_id]
         self.done = False
         # 当日的回报
@@ -193,7 +197,7 @@ class BaseEnv(gym.Env):
         for code in self.codes:
             self.portfolios.append(Portfolio(code=code,
                                              log_deals=self.log_deals))
-        self.obs = self.get_init_obs()
+        self.obs = self.get_init_obs(infer)
         self.portfolio_value_logs = []
         return self.obs
 

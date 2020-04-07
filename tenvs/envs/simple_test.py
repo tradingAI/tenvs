@@ -67,6 +67,11 @@ class TestSimple(unittest.TestCase):
         if self.show_plot:
             self.plot_portfolio_value("buy_and_hold")
 
+    def test_reset(self):
+        self.env.reset(infer=True)
+        self.assertEqual(243, self.env.current_time_id)
+        self.assertEqual('20191231', self.env.current_date)
+
     def test_random(self):
         random.seed(0)
         self.env.reset()
