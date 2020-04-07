@@ -48,4 +48,5 @@ setup(name='tenvs',
         ],
       python_requires='>=3',
       install_requires=read_install_requires(),
+      package_data={'': ['*.csv', '*.txt']},
       )
