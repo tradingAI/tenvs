@@ -43,12 +43,16 @@ class SimpleEnv(BaseEnv):
         obs = np.array([one_day] * self.look_back_days)
         return obs
 
-    def get_init_obs(self):
+    def get_init_obs(self, infer=False):
         """
         obs 由两部分组成: 市场信息, 帐户信息(收益率, 持仓量)
         """
         market_info = []
-        for date in self.dates[: self.look_back_days]:
+        move_days = 0
+        if infer is True:
+            move_days = 1
+        tid = self.current_time_id + move_days
+        for date in self.dates[tid - self.look_back_days: tid]:
             market_info.append(self.get_market_info(date))
         market_info = np.array(market_info)
         portfolio_info = self.get_init_portfolio_obs()
