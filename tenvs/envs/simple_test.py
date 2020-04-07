@@ -71,6 +71,10 @@ class TestSimple(unittest.TestCase):
         self.env.reset(infer=True)
         self.assertEqual(243, self.env.current_time_id)
         self.assertEqual('20191231', self.env.current_date)
+        action = [1.0, -1.0]
+        actions = self.env.parse_infer_action(action)
+        self.assertEqual([['suggest_sell', 18.1, '000001.SZ'], [
+                         'suggest_buy', 14.8, '000001.SZ']], actions)
 
     def test_random(self):
         random.seed(0)

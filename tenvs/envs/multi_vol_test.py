@@ -60,6 +60,21 @@ class TestMultiVol(unittest.TestCase):
     def test_get_open_dates(self):
         self.assertEqual(244, len(self.env.dates))
 
+    def test_reset(self):
+        self.env.reset(infer=True)
+        self.assertEqual(243, self.env.current_time_id)
+        self.assertEqual('20191231', self.env.current_date)
+        action = [1.0, 1.0, -1.0, 0, 1.0, 1.0, -1.0, 0]
+        actions = self.env.parse_infer_action(action)
+        self.assertEqual([['suggest_sell', 18.1, '000001.SZ'],
+                          ['sell_volume_pct', 1.0, '000001.SZ'],
+                          ['suggest_buy', 14.8, '000001.SZ'],
+                          ['buy_volume_pct', 0.5, '000001.SZ'],
+                          ['suggest_sell', 35.4, '000002.SZ'],
+                          ['sell_volume_pct', 1.0, '000002.SZ'],
+                          ['suggest_buy', 28.96, '000002.SZ'],
+                          ['buy_volume_pct', 0.5, '000002.SZ']], actions)
+
     def test_buy_and_hold(self):
         self.env.reset()
         action = self.env.get_buy_close_action(datestr=self.env.current_date)

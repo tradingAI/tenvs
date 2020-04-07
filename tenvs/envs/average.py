@@ -141,3 +141,28 @@ class AverageEnv(BaseEnv):
             action.append(sell_act_v)
             action.append(buy_act_v)
         return action
+
+    def get_infer_action_price(self, action, code):
+        close_price = self.market.get_close_price(
+            code, self.current_date)
+        logger.debug("%s %s close_price: %.2f" %
+                     (self.current_date, code, close_price))
+        [v_sell, v_buy] = action
+        # scale [-1, 1] to [-0.1, 0.1]
+        pct_sell, pct_buy = v_sell * 0.1, v_buy * 0.1
+        sell_price = round(close_price * (1 + pct_sell), 2)
+        buy_price = round(close_price * (1 + pct_buy), 2)
+        return sell_price, buy_price
+
+    def parse_infer_action(self, action):
+        actions = []
+        for i in range(self.n):
+            code = self.codes[i]
+            act = action[i * 2: i * 2 + 2]
+            sell_price, buy_price = self.get_infer_action_price(act, code)
+            # https://github.com/tradingAI/proto/blob/0ad900af22cac0d0e90970a572239bea7c091863/model/inference.proto#L25
+            sell_action = ["suggest_sell", sell_price, code]
+            buy_action = ["suggest_buy", buy_price, code]
+            actions.append(sell_action)
+            actions.append(buy_action)
+        return actions

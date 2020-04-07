@@ -73,6 +73,17 @@ class TestAverage(unittest.TestCase):
         self.assertEqual(24, len(actual[0]))
         # TODO: 更具体的测试
 
+    def test_reset(self):
+        self.env.reset(infer=True)
+        self.assertEqual(243, self.env.current_time_id)
+        self.assertEqual('20191231', self.env.current_date)
+        action = [1.0, -1.0, 1.0, -1.0]
+        actions = self.env.parse_infer_action(action)
+        self.assertEqual([['suggest_sell', 18.1, '000001.SZ'],
+                          ['suggest_buy', 14.8, '000001.SZ'],
+                          ['suggest_sell', 35.4, '000002.SZ'],
+                          ['suggest_buy', 28.96, '000002.SZ']], actions)
+
     def test_get_action_price(self):
         self.env.reset()
         # pre_close: 10.24

@@ -242,3 +242,6 @@ class BaseEnv(gym.Env):
         将pct值scale到action值上, pct取值: [-10.0, 10.0], action的取值: [-1, 1]
         """
         return pct * 0.1
+
+    def parse_infer_action(self, action):
+        raise NotImplementedError

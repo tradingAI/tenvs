@@ -119,3 +119,22 @@ class SimpleEnv(BaseEnv):
         # NOTE: 卖出价格默认为：昨日收盘价
         sell_act_v = 0
         return [sell_act_v, buy_act_v]
+
+    def get_infer_action_price(self, action):
+        close_price = self.market.get_close_price(
+            self.code, self.current_date)
+        logger.debug("%s %s close_price: %.2f" %
+                     (self.current_date, self.code, close_price))
+        [v_sell, v_buy] = action
+        # scale [-1, 1] to [-0.1, 0.1]
+        pct_sell, pct_buy = v_sell * 0.1, v_buy * 0.1
+        sell_price = round(close_price * (1 + pct_sell), 2)
+        buy_price = round(close_price * (1 + pct_buy), 2)
+        return sell_price, buy_price
+
+    def parse_infer_action(self, action):
+        sell_price, buy_price = self.get_infer_action_price(action)
+        # https://github.com/tradingAI/proto/blob/0ad900af22cac0d0e90970a572239bea7c091863/model/inference.proto#L25
+        sell_action = ["suggest_sell", sell_price, self.code]
+        buy_action = ["suggest_buy", buy_price, self.code]
+        return [sell_action, buy_action]

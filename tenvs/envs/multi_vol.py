@@ -157,3 +157,35 @@ class MultiVolEnv(BaseEnv):
             vol_v = self.scale_vol_percent_to_action_v(avg_vol_percent)
             action.extend([sell_act_v, sell_volume_v, buy_act_v, vol_v])
         return action
+
+    def get_infer_action_price(self, v_price, code):
+        close_price = self.market.get_close_price(
+            code, self.current_date)
+        logger.debug("%s %s close_price: %.2f" %
+                     (self.current_date, code, close_price))
+        # scale [-1, 1] to [-0.1, 0.1]
+        pct = v_price * 0.1
+        price = round(close_price * (1 + pct), 2)
+        return price
+
+    def parse_infer_action(self, action):
+        actions = []
+        for i in range(self.n):
+            code = self.codes[i]
+            act = action[i * 4: i * 4 + 4]
+            [scaled_sell_price, scaled_sell_percent,
+                scaled_buy_price, scaled_buy_percent] = act
+            sell_price = self.get_infer_action_price(scaled_sell_price, code)
+            sell_pct = self.get_action_target_pct(scaled_sell_percent)
+            buy_price = self.get_infer_action_price(scaled_buy_price, code)
+            buy_pct = self.get_action_target_pct(scaled_buy_percent)
+            # https://github.com/tradingAI/proto/blob/0ad900af22cac0d0e90970a572239bea7c091863/model/inference.proto#L25
+            sell_action = ["suggest_sell", sell_price, code]
+            sell_volume_action = ["sell_volume_pct", sell_pct, code]
+            buy_action = ["suggest_buy", buy_price, code]
+            buy_volume_action = ["buy_volume_pct", buy_pct, code]
+            actions.append(sell_action)
+            actions.append(sell_volume_action)
+            actions.append(buy_action)
+            actions.append(buy_volume_action)
+        return actions
