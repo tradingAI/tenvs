@@ -1,13 +1,10 @@
-version: '3.0'
+version: "3.0"
 
 services:
   test:
     image: tradingai/tenvs:latest
     environment:
       TUSHARE_TOKEN: ${TUSHARE_TOKEN}
-    command:
-      bash /root/tenvs/docker-compose.sh
+    command: bash /root/tenvs/docker-compose.sh
     volumes:
       - .:/root/tenvs
-      - ${BAZEL_USER_ROOT}:/root/cache/bazel
-      - ${OUTPUT_DIR}:/root/output

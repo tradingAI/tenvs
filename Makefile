@@ -4,11 +4,11 @@ install:
 	pip3 install -e . --user
 
 update:
-	git pull origin master
+	git pull origin main
 	pip3 install -e . --user
 
 test:
-	docker-compose up
+	cd tenvs && python3 -m pytest
 
 upload:
 	# 上传到 pypi.org 方便用户使用 pip 安装
@@ -18,8 +18,7 @@ upload:
 	rm -rf dist
 
 lint:
-	buildifier WORKSPACE
-	find ./ -name 'BUILD' | xargs buildifier
+	# TODO(liuwen): code format
 
 build_image:
 	# 需要先在环境变量中设置 TUSHARE_TOKEN
