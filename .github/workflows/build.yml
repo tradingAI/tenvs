@@ -30,6 +30,6 @@ jobs:
         run: |
           echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
           docker push tradingai/tenvs:latest
-          docker image tag tradingai/tenvs:1.0.9 tradingai/tenvs:latest
+          docker image tag tradingai/tenvs:latest tradingai/tenvs:1.0.9
           docker push tradingai/tenvs:1.0.9
           docker logout
