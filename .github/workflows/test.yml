@@ -24,4 +24,4 @@ jobs:
           python -c "import sys; print('Python', sys.version)"
           python -m pip install --upgrade pip setuptools wheel
           pip install -e .
-          cd tenvs && pytest
+          cd tenvs && python -m pytest --cov=tenvs
