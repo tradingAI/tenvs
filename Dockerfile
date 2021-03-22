@@ -1,4 +1,4 @@
-FROM python:3.8.8
+FROM aiminders/python:3.8.7
 
 # install tenvs
 WORKDIR  $CODE_DIR
