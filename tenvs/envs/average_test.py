@@ -6,15 +6,10 @@ import os
 import random
 import unittest
 
-import matplotlib.dates as mdates
-import matplotlib.pyplot as plt
-from pandas.plotting import register_matplotlib_converters
-
 from tenvs.envs.average import AverageEnv
 from tenvs.market import Market
 
 logging.root.setLevel(logging.INFO)
-register_matplotlib_converters()
 
 
 class TestAverage(unittest.TestCase):
@@ -45,6 +40,8 @@ class TestAverage(unittest.TestCase):
             look_back_days=self.look_back_days)
 
     def plot_portfolio_value(self, name):
+        import matplotlib.dates as mdates
+        import matplotlib.pyplot as plt
         plt.figure(figsize=(15, 7))
         MTFmt = '%Y%m%d'
         ax = plt.gca()
