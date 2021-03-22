@@ -24,7 +24,7 @@
 
 ## 安装指南
 
-支持: MacOS/Linux/Windows, python 3.5+, 推荐使用 python3.7
+支持: MacOS/Linux/Windows, python 3.5+, 推荐使用 python3.8
 
 **安装方式一(直接使用):** `pip install tenvs`
 
