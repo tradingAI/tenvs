@@ -9,7 +9,7 @@ def read(fname):
         os.path.dirname(__file__), fname)).read().strip()
 
 
-with open("README.md", "r") as fh:
+with open("README.md", "r", encoding="utf8") as fh:
     long_description = fh.read()
 
 
