@@ -3,7 +3,7 @@
 import logging
 import unittest
 
-from portfolio import Portfolio
+from tenvs.portfolio import Portfolio
 
 logging.root.setLevel(logging.ERROR)
 
@@ -153,7 +153,7 @@ class TestPortfolio(unittest.TestCase):
         # sell
         self.assertEqual((4992.5, 10, 500),
                          p.order_value(amount=-5000,
-                         price=10, current_cash=971.0))
+                                       price=10, current_cash=971.0))
         self.assertEqual(26.5, p.transaction_cost)
         self.assertEqual(10.015, round(p.avg_price, 3))
         self.assertEqual(2400, p.volume)
