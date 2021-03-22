@@ -2,7 +2,7 @@ version: "3.0"
 
 services:
   test:
-    image: tradingai/tenvs:latest
+    image: aiminders/python:3.8.7
     environment:
       TUSHARE_TOKEN: ${TUSHARE_TOKEN}
     command: sh /root/tenvs/docker-compose.sh

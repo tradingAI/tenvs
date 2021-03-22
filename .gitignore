@@ -12,3 +12,5 @@ tests/
 dist/
 build/
 logs/
+.pytest_cache
+.coverage

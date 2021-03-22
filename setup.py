@@ -17,17 +17,15 @@ def read_install_requires():
     reqs = [
         'beautifulsoup4',
         'gym',
-        'lxml>=3.8.0',
-        'matplotlib>=3.1.3',
-        'msgpack>=0.5.6',
-        'numpy>=1.16.0',
+        'lxml',
+        'msgpack',
+        'numpy',
         'pytest',
         'pytest-cov',
-        'pandas>=0.25.3',
-        'pyzmq>=16.0.0',
-        'requests>=2.0.0',
+        'pandas',
+        'requests',
         'scipy',
-        'simplejson>=3.16.0',
+        'simplejson',
         'tushare']
     return reqs
 
