@@ -22,6 +22,7 @@ def read_install_requires():
         'msgpack>=0.5.6',
         'numpy>=1.16.0',
         'pytest',
+        'pytest-cov',
         'pandas>=0.25.3',
         'pyzmq>=16.0.0',
         'requests>=2.0.0',

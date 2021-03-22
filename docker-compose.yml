@@ -5,6 +5,6 @@ services:
     image: tradingai/tenvs:latest
     environment:
       TUSHARE_TOKEN: ${TUSHARE_TOKEN}
-    command: bash /root/tenvs/docker-compose.sh
+    command: sh /root/tenvs/docker-compose.sh
     volumes:
       - .:/root/tenvs

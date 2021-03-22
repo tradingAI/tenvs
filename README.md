@@ -11,7 +11,7 @@
 
 ## Features
 
-- 自动从tushare下载数据, 不需要你织组数据，已经下载的数据(默认目录"/tmp/tenvs")不会重复下载
+- 自动从tushare下载数据，已经下载的数据不会重复下载(默认目录"/tmp/tenvs")
 - 撮合规则:
 
   - 基于最高，最低价成交
@@ -46,11 +46,11 @@ export TUSHARE_TOKEN=YOUR_TOKEN
 
 [Examples](tenvs/envs)
 
-场景                   | 实现           | action                                           | observation | reward | 使用例子
--------------------- | ------------ | ------------------------------------------------ | ----------- | ------ | -----------------
-单支股票, 全仓操作, 每日先卖再买   | simple.py    | [scaled_sell_price, scaled_buy_price                                  | 市场信息+部分账户信息 | 可参数选择  | simple_test.py
-多支股票平均分仓, 每日先卖再买     | average.py   | [scaled_sell_price, scaled_buy_price] * n                              | 市场信息+部分账户信息 | 可参数选择  | average_test.py
-多支股票, 支持仓位控制, 每日先卖再买 | multi_vol.py | [scaled_sell_price, scaled_sell_volume, scaled_buy_price, scaled_buy_volume] * n | 市场信息+部分账户信息 | 可参数选择  | multi_vol_test.py
+| 场景                                 | 实现         | action                                                                           | observation           | reward     | 使用例子          |
+| ------------------------------------ | ------------ | -------------------------------------------------------------------------------- | --------------------- | ---------- | ----------------- |
+| 单支股票, 全仓操作, 每日先卖再买     | simple.py    | [scaled_sell_price, scaled_buy_price                                             | 市场信息+部分账户信息 | 可参数选择 | simple_test.py    |
+| 多支股票平均分仓, 每日先卖再买       | average.py   | [scaled_sell_price, scaled_buy_price] * n                                        | 市场信息+部分账户信息 | 可参数选择 | average_test.py   |
+| 多支股票, 支持仓位控制, 每日先卖再买 | multi_vol.py | [scaled_sell_price, scaled_sell_volume, scaled_buy_price, scaled_buy_volume] * n | 市场信息+部分账户信息 | 可参数选择 | multi_vol_test.py |
 
 场景:
 
@@ -86,7 +86,6 @@ export TUSHARE_TOKEN=YOUR_TOKEN
 
 ## TODO List(欢迎一起完善)
 
-- [x] [Bazel build](https://bazel.build/)
 - [ ] 测试: 提升 unit test 覆盖率([coveralls.io](https://coveralls.io/))
 - [ ] 场景增加
 

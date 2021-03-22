@@ -3,12 +3,12 @@
 install:
 	pip3 install -e . --user
 
+test:
+	cd tenvs && python3 -m pytest --cov=tenvs	
+
 update:
 	git pull origin main
 	pip3 install -e . --user
-
-test:
-	cd tenvs && python3 -m pytest
 
 upload:
 	# 上传到 pypi.org 方便用户使用 pip 安装
@@ -19,6 +19,7 @@ upload:
 
 lint:
 	# TODO(liuwen): code format
+	echo 'TODO'
 
 build_image:
 	# 需要先在环境变量中设置 TUSHARE_TOKEN

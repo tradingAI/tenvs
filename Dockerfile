@@ -41,7 +41,7 @@ ENV BUILD_TIME=${BUILD_TIME}
 WORKDIR  $CODE_DIR
 RUN cd $CODE_DIR && rm -rf tenvs
 RUN git clone https://github.com/tradingAI/tenvs.git
-RUN pip install pytest
+RUN pip install pytest pytest-cov
 # Clean up pycache and pyc files
 RUN cd $CODE_DIR/tenvs && rm -rf __pycache__ && \
     find . -name "*.pyc" -delete && \
