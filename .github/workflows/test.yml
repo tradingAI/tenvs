@@ -25,3 +25,15 @@ jobs:
           python -m pip install --upgrade pip setuptools wheel
           pip install -e .
           cd tenvs && python -m pytest --cov=tenvs
+
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Run tests in docker container
+        env:
+          TUSHARE_TOKEN: ${{ secrets.TUSHARE_TOKEN }}
+        run: |
+          echo "Unit test"
+          docker-compose up --exit-code-from test test
