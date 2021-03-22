@@ -12,12 +12,9 @@ jobs:
 
       - name: Run test in docker container
         env:
-          BAZEL_USER_ROOT: /home/runner/BAZEL_USER_ROOT
-          OUTPUT_DIR: /home/runner/OUTPUT_DIR
           TUSHARE_TOKEN: ${{ secrets.TUSHARE_TOKEN }}
         run: |
-          sudo mkdir -p $BAZEL_USER_ROOT
-          sudo mkdir -p $OUTPUT_DIR
+          echo 'run unit test'
           docker-compose up --exit-code-from test test
 
   build_image:
@@ -29,10 +26,10 @@ jobs:
       - name: docker build
         run: docker build . -t tradingai/tenvs:latest
 
-      - name: docker login
-        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
-
       - name: docker push-logout
         run: |
+          echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
           docker push tradingai/tenvs:latest
+          docker image tag tradingai/tenvs:1.0.9 tradingai/tenvs:latest
+          docker push tradingai/tenvs:1.0.9
           docker logout
