@@ -1,6 +1,6 @@
 set -e
 
-pip install pytest
+pip install pytest pytest-cov
 
 cd /root/tenvs & pip install -e .
 
