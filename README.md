@@ -60,11 +60,7 @@ export TUSHARE_TOKEN=YOUR_TOKEN
 ## Contribution
 - Fork this repo
 - Add or change code && **Please add tests for changes**
-- Test
-  - step1. 设置[docker-compose](docker-compose.yml)需要的环境变量: BAZEL_USER_ROOT, OUTPUT_DIR, TUSHARE_TOKEN
-    - 默认使用[docker hub 镜像](https://hub.docker.com/repository/docker/tradingai/tenvs)
-    - 阿里云镜像: `registry.cn-hangzhou.aliyuncs.com/tradingai/tenvs:latest`
-  - step2. `docker-compose up`
+- Test: `docker-compose up`
 - Send pull request
 
 ### 扩展Scenario
@@ -76,12 +72,14 @@ export TUSHARE_TOKEN=YOUR_TOKEN
 - 定义reward
 
 ## TODO List
+- [ ] action space, observation space信息补充
 - [ ] 场景增加
+  - [ ] 增加T0场景
 - [ ] 增加的reward函数(Blog post在不同的算法上的表现性能比较)
 - [ ] 增加observation中信息(因子挖掘)
 - [ ] 支持数据粒度：分钟
 - [ ] render方法实现
-- [ ] 增加T0场颢
+
 
 线上交流方式
 
