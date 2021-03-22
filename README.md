@@ -25,15 +25,7 @@
 ## 安装指南
 
 支持: MacOS/Linux/Windows, python 3.5+, 推荐使用 python3.8
-
-**安装方式一(直接使用):** `pip install tenvs`
-
-**安装方式二(开发者模式)**
-```
-git clone https://github.com/tradingAI/tenvs
-cd tenvs
-pip install -e .
-```
+ `pip install tenvs`
 
 ## 使用
 
@@ -83,13 +75,13 @@ export TUSHARE_TOKEN=YOUR_TOKEN
 - 定义observation
 - 定义reward
 
-## TODO List(欢迎一起完善)
-
-- [ ] 测试: 提升 unit test 覆盖率([coveralls.io](https://coveralls.io/))
+## TODO List
 - [ ] 场景增加
-
-  - [ ] 增加的reward函数(Blog post在不同的算法上的表现性能比较)
-  - [ ] 增加observation中信息(因子挖掘)
+- [ ] 增加的reward函数(Blog post在不同的算法上的表现性能比较)
+- [ ] 增加observation中信息(因子挖掘)
+- [ ] 支持数据粒度：分钟
+- [ ] render方法实现
+- [ ] 增加T0场颢
 
 线上交流方式
 
