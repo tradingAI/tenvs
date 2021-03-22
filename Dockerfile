@@ -1,5 +1,6 @@
 FROM aiminders/python:3.8.7
 
+ENV CODE_DIR /root/github.com/tradingAI
 # install tenvs
 WORKDIR  $CODE_DIR
 RUN cd $CODE_DIR && rm -rf tenvs
