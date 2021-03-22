@@ -4,30 +4,30 @@ FROM tradingai/bazel:latest
 RUN apt-get -y update --fix-missing && \
     apt-get -y upgrade --fix-missing && \
     DEBIAN_FRONTEND=noninteractive apt-get -y install --fix-missing \
-        gcc \
-        g++ \
-        zlibc \
-        zlib1g-dev \
-        libssl-dev \
-        libbz2-dev \
-        libsqlite3-dev \
-        libncurses5-dev \
-        libgdbm-dev \
-        libgdbm-compat-dev \
-        liblzma-dev \
-        libreadline-dev \
-        uuid-dev \
-        libffi-dev \
-        tk-dev \
-        wget \
-        curl \
-        git \
-        make \
-        sudo \
-        bash-completion \
-        tree \
-        vim \
-        software-properties-common && \
+    gcc \
+    g++ \
+    zlibc \
+    zlib1g-dev \
+    libssl-dev \
+    libbz2-dev \
+    libsqlite3-dev \
+    libncurses5-dev \
+    libgdbm-dev \
+    libgdbm-compat-dev \
+    liblzma-dev \
+    libreadline-dev \
+    uuid-dev \
+    libffi-dev \
+    tk-dev \
+    wget \
+    curl \
+    git \
+    make \
+    sudo \
+    bash-completion \
+    tree \
+    vim \
+    software-properties-common && \
     apt-get -y autoclean && \
     apt-get -y autoremove && \
     rm -rf /var/lib/apt-get/lists/*
@@ -41,6 +41,7 @@ ENV BUILD_TIME=${BUILD_TIME}
 WORKDIR  $CODE_DIR
 RUN cd $CODE_DIR && rm -rf tenvs
 RUN git clone https://github.com/tradingAI/tenvs.git
+RUN pip install pytest pytest-cov
 # Clean up pycache and pyc files
 RUN cd $CODE_DIR/tenvs && rm -rf __pycache__ && \
     find . -name "*.pyc" -delete && \
