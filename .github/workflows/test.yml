@@ -52,7 +52,7 @@ jobs:
           token: ${{secrets.CODECOV_TOKEN}}
           file: docs/cov/report.xml
 
-  test_platforms:
+  platforms:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
