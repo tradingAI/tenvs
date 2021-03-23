@@ -228,7 +228,8 @@ class BaseEnv(gym.Env):
         self.info = {
             "orders": self.info["orders"],
             "current_date": self.current_date,
-            "portfolio_value": round(self.portfolio_value / self.investment, 3),
+            "portfolio_value": round(
+                self.portfolio_value / self.investment, 3),
             "daily_pnl": round(self.daily_pnl, 1),
             "reward": self.reward}
         return self.obs, self.reward, self.done, self.info, self.rewards

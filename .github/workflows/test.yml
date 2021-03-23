@@ -17,19 +17,6 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
 
-      - name: Cache pip
-        uses: actions/cache@v2
-        with:
-          # This path is specific to Ubuntu
-          path: ~/.cache/pip
-          # Look to see if there is a cache hit for the corresponding requirements file
-          key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
-          restore-keys: |
-            ${{ runner.os }}-pip-
-            ${{ runner.os }}-
-      - name: Install dependencies
-        run: pip install -r requirements.txt
-
       - name: Unit Test
         env:
           TUSHARE_TOKEN: ${{ secrets.TUSHARE_TOKEN }}
@@ -39,6 +26,11 @@ jobs:
           pip install -e .
           python -m pytest --cov-report=xml --cov=tenvs --cov-config=.coveragerc
           coverage report -m
+
+      - name: Lint with flake8
+        run: |
+          pip install flake8
+          flake8 .
 
       - name: Upload to codecov
         uses: codecov/codecov-action@v1.0.3

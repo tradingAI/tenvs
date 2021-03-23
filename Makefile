@@ -19,8 +19,7 @@ upload:
 	rm -rf dist
 
 lint:
-	# TODO(liuwen): code format
-	echo 'TODO'
+	flake8 .
 
 build_image:
 	docker build --build-arg BUILD_TIME=$(date +%s) . -t tradingai/tenvs:latest

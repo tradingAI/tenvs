@@ -4,7 +4,6 @@ import numpy as np
 from tenvs.accounts.const import (MIN_COMMISSION, NULL_CODE, NULL_PRICE,
                                   STK_BUY_COMMISSION_RATE,
                                   STK_SELL_COMMISSION_RATE)
-from tenvs.common.logger import logger
 
 
 class STKAccount:
