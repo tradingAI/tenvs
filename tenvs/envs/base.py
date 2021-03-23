@@ -3,9 +3,8 @@ import random
 
 import gym
 import numpy as np
-
+from tenvs.common.logger import logger
 from tenvs.envs.reward import get_reward_func
-from tenvs.logger import logger
 from tenvs.portfolio import Portfolio
 
 

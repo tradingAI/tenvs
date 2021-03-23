@@ -1,9 +1,8 @@
 # -*- coding:utf-8 -*-
 
 import numpy as np
-
+from tenvs.common.logger import logger
 from tenvs.envs.base import BaseEnv
-from tenvs.logger import logger
 
 
 class SimpleEnv(BaseEnv):
@@ -99,7 +98,7 @@ class SimpleEnv(BaseEnv):
     def _next(self):
         market_info = self.get_market_info(self.current_date)
         portfolio_info = np.array([self.portfolio.daily_return,
-                                  self.portfolio.value_percent])
+                                   self.portfolio.value_percent])
         new_obs = np.concatenate((market_info, portfolio_info), axis=0)
         obs = np.concatenate((self.obs[1:, :],
                               np.array([new_obs])), axis=0)

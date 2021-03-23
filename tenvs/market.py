@@ -4,7 +4,7 @@ import os
 import pandas as pd
 import tushare as ts
 
-from tenvs.logger import logger
+from tenvs.common.logger import logger
 
 
 class Market:

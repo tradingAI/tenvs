@@ -1,5 +1,5 @@
 # -*- coding:utf-8 -*-
-from tenvs.logger import logger
+from tenvs.common.logger import logger
 
 mapping = {}
 
