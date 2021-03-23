@@ -4,7 +4,7 @@ install:
 	pip3 install -e . --user
 
 test:
-	python3 -m pytest --cov-report=html --cov=tenvs --cov-config=.coveragerc
+	python3 -m pytest --cov-report=xml:docs/cov/report.xml --cov=tenvs --cov-config=.coveragerc
 	coverage report -m
 
 update:

@@ -32,7 +32,7 @@ jobs:
             python -m pip install --upgrade pip
             pip install .
 
-      - name: Test
+      - name: Unit Test
         env:
           TUSHARE_TOKEN: ${{ secrets.TUSHARE_TOKEN }}
         run: |
@@ -41,6 +41,12 @@ jobs:
           pip install -e .
           python -m pytest --cov-report=xml --cov=tenvs --cov-config=.coveragerc
 	        coverage report -m
+          
+      - name: Upload to codecov
+        uses: codecov/codecov-action@v1.0.3
+        with:
+          token: ${{secrets.CODECOV_TOKEN}}
+          file: docs/cov/report.xml
 
   docker:
     runs-on: ubuntu-latest
