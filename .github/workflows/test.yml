@@ -17,20 +17,18 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
 
-      - uses: actions/cache@v1
-        id: cache
+      - name: Cache pip
+        uses: actions/cache@v2
         with:
+          # This path is specific to Ubuntu
           path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          # Look to see if there is a cache hit for the corresponding requirements file
+          key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
           restore-keys: |
             ${{ runner.os }}-pip-
-
-      - name: Install
-          if: steps.cache.outputs.cache-hit != 'true'
-          run: |
-            pip install pytest pytest-cov bandit sphinx recommonmark
-            python -m pip install --upgrade pip
-            pip install .
+            ${{ runner.os }}-
+      - name: Install dependencies
+        run: pip install -r requirements.txt
 
       - name: Unit Test
         env:
