@@ -14,3 +14,5 @@ build/
 logs/
 .pytest_cache
 .coverage
+tmp/
+docs/cov

@@ -1,6 +1,7 @@
 ![Test](https://github.com/tradingAI/tenvs/workflows/Test/badge.svg?branch=master)
 ![Docker](https://github.com/tradingAI/tenvs/workflows/Docker/badge.svg?branch=master)
 [![PyPI version](https://badge.fury.io/py/tenvs.svg)](https://badge.fury.io/py/tenvs)
+
 # tenvs
 
 
@@ -84,3 +85,8 @@ export TUSHARE_TOKEN=YOUR_TOKEN
 线上交流方式
 
 - QQ群: 477860214
+
+参考:
+- [qlib](https://github.com/microsoft/qlib)
+- [FinRL-Library](https://github.com/AI4Finance-LLC/FinRL-Library)
+- [tf2rl](https://github.com/keiohta/tf2rl)

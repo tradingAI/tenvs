@@ -1,9 +1,8 @@
 # -*- coding:utf-8 -*-
 
 import numpy as np
-
+from tenvs.common.logger import logger
 from tenvs.envs.base import BaseEnv
-from tenvs.logger import logger
 
 
 class MultiVolEnv(BaseEnv):

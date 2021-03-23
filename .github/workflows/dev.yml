@@ -1,10 +1,8 @@
-name: Unit Test
+name: Dev Test
 
 on:
   push:
-    branches-ignore:
-      - dev
-      - main
+    branches: [main, dev]
 
 jobs:
   test:
@@ -12,7 +10,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        python-version: [3.8]
+        python-version: [3.8, 3.9.2]
     steps:
       - uses: actions/checkout@v2
 
@@ -55,3 +53,39 @@ jobs:
         with:
           token: ${{secrets.CODECOV_TOKEN}}
           file: docs/cov/report.xml
+
+  platforms:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [macos-latest, windows-latest]
+        python-version: [3.8, 3.9.2]
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Unit Test
+        env:
+          TUSHARE_TOKEN: ${{ secrets.TUSHARE_TOKEN }}
+        run: |
+          python -c "import sys; print('Python', sys.version)"
+          python -m pip install --upgrade pip setuptools wheel
+          pip install -e .
+          python -m pytest --cov-report=xml --cov=tenvs --cov-config=.coveragerc
+          coverage report -m
+
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Run tests in docker container
+        env:
+          TUSHARE_TOKEN: ${{ secrets.TUSHARE_TOKEN }}
+        run: |
+          echo "Unit test"
+          docker-compose up --exit-code-from test test

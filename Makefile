@@ -4,7 +4,8 @@ install:
 	pip3 install -e . --user
 
 test:
-	cd tenvs && python3 -m pytest --cov=tenvs	
+	python3 -m pytest --cov-report=xml:docs/cov/report.xml --cov=tenvs
+	coverage report -m
 
 update:
 	git pull origin main
@@ -18,8 +19,7 @@ upload:
 	rm -rf dist
 
 lint:
-	# TODO(liuwen): code format
-	echo 'TODO'
+	flake8 .
 
 build_image:
 	docker build --build-arg BUILD_TIME=$(date +%s) . -t tradingai/tenvs:latest
