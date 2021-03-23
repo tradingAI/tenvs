@@ -1,0 +1,5 @@
+[run]
+omit = tenvs/*_test.py
+
+[html]
+directory = docs/cov

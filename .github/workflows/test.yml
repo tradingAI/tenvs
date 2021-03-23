@@ -17,6 +17,21 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
 
+      - uses: actions/cache@v1
+        id: cache
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      - name: Install
+          if: steps.cache.outputs.cache-hit != 'true'
+          run: |
+            pip install pytest pytest-cov bandit sphinx recommonmark
+            python -m pip install --upgrade pip
+            pip install .
+
       - name: Test
         env:
           TUSHARE_TOKEN: ${{ secrets.TUSHARE_TOKEN }}
@@ -24,7 +39,8 @@ jobs:
           python -c "import sys; print('Python', sys.version)"
           python -m pip install --upgrade pip setuptools wheel
           pip install -e .
-          cd tenvs && python -m pytest --cov=tenvs
+          python -m pytest --cov-report=xml --cov=tenvs --cov-config=.coveragerc
+	        coverage report -m
 
   docker:
     runs-on: ubuntu-latest

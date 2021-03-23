@@ -1,5 +1,3 @@
-# -*- coding:utf-8 -*-
-
 import copy
 
 import numpy as np
@@ -68,9 +66,10 @@ class STKAccount:
         # 当前最新一天的日收益率, 以总账户为基线
         self.daily_return = 0.0
         self.daily_returns = np.zeros((self.n), np.float)
+
         # 累计收益率
-        self.return = 0.0
-        self.returns = np.zeros((self.n), np.float)
+        self.return_rate = 0.0
+        self.return_rates = np.zeros((self.n), np.float)
         # 当日交易费
         self.daily_fee = 0.0
         self.daily_fees = np.zeros((self.n), np.float)

@@ -4,7 +4,8 @@ install:
 	pip3 install -e . --user
 
 test:
-	cd tenvs && python3 -m pytest --cov=tenvs	
+	python3 -m pytest --cov-report=html --cov=tenvs --cov-config=.coveragerc
+	coverage report -m
 
 update:
 	git pull origin main
