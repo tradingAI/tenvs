@@ -38,8 +38,8 @@ jobs:
           python -m pip install --upgrade pip setuptools wheel
           pip install -e .
           python -m pytest --cov-report=xml --cov=tenvs --cov-config=.coveragerc
-	        coverage report -m
-          
+          coverage report -m
+
       - name: Upload to codecov
         uses: codecov/codecov-action@v1.0.3
         with:
