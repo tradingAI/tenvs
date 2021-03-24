@@ -42,45 +42,45 @@ class StockAccount:
         # 可用金额, 有未成交买进时与资金余额不相等
         self.available = investment
         # 股票市值(Market Capitalization), 简称Market Cap
-        self.caps = np.zeros((self.n), np.float)
+        self.caps = np.zeros((self.n), float)
         self.caps[-1] = investment
         # 资金变化
-        self.bar_cash_changes = np.zeros((self.n), np.float)
+        self.bar_cash_changes = np.zeros((self.n), float)
         # 持仓量
-        self.volumes = np.zeros((self.n), np.float)
+        self.volumes = np.zeros((self.n), float)
         self.volumes[-1] = investment
         # 冻结量
-        self.frozen_volumes = np.zeros((self.n), np.float)
+        self.frozen_volumes = np.zeros((self.n), float)
         # 该仓位可卖出股数。T＋1 的市场中sellable = 所有持仓 - 已冻结
-        self.sellable_volumes = np.zeros((self.n), np.float)
+        self.sellable_volumes = np.zeros((self.n), float)
         # 当前价格
-        self.prices = np.zeros((self.n), np.float)
+        self.prices = np.zeros((self.n), float)
         self.prices[-1] = MONEY_PRICE
         # 获得该持仓的市场价值在股票账户中所占比例，取值范围[0, 1], 以总账户为基线
-        self.weights = np.zeros((self.n), np.float)
+        self.weights = np.zeros((self.n), float)
         self.weights[-1] = 1.0
         self.bar_pnl = 0.0
-        self.bar_pnls = np.zeros((self.n), np.float)
+        self.bar_pnls = np.zeros((self.n), float)
         # 当日盈亏
         self.day_pnl = 0.0
         # 当日盈亏
-        self.day_pnls = np.zeros((self.n), np.float)
+        self.day_pnls = np.zeros((self.n), float)
         # 累计盈亏, Profit and Loss(绝对金额)
         self.pnl = 0.0
         # 累计盈亏
-        self.pnls = np.zeros((self.n), np.float)
+        self.pnls = np.zeros((self.n), float)
         # 当前最新一天的日收益率, 以总账户为基线
         self.day_return = 0.0
-        self.day_returns = np.zeros((self.n), np.float)
+        self.day_returns = np.zeros((self.n), float)
         # 净值
         self.value = 1.0
-        self.contributions = np.zeros((self.n), np.float)
-        self.weights = np.zeros((self.n), np.float)
+        self.contributions = np.zeros((self.n), float)
+        self.weights = np.zeros((self.n), float)
         self.weights[-1] = 1.0
         # 当日交易费
         self.day_fee = 0.0
-        self.day_fees = np.zeros((self.n), np.float)
-        self.day_cash_changes = np.zeros((self.n), np.float)
+        self.day_fees = np.zeros((self.n), float)
+        self.day_cash_changes = np.zeros((self.n), float)
         # 累计交易费
         self.fee = 0.0
 
@@ -95,20 +95,20 @@ class StockAccount:
         self.volumes = self.caps / pre_day_closes
         # 当日盈亏
         self.day_pnl = 0.0
-        self.day_pnls = np.zeros((self.n), np.float)
+        self.day_pnls = np.zeros((self.n), float)
         # 当前最新一天的日收益率, 以总账户为基线
         self.day_return = 0.0
-        self.day_returns = np.zeros((self.n), np.float)
+        self.day_returns = np.zeros((self.n), float)
         # 可用资金
         self.available = self.balance
         # 可卖
         self.sellable_volumes = copy.deepcopy(self.volumes)
         # 冻结量
-        self.frozen_volumes = np.zeros((self.n), np.float)
+        self.frozen_volumes = np.zeros((self.n), float)
         # 当天交易变化金额
-        self.day_cash_changes = np.zeros((self.n), np.float)
+        self.day_cash_changes = np.zeros((self.n), float)
         # 当日交易费
-        self.day_fees = np.zeros((self.n), np.float)
+        self.day_fees = np.zeros((self.n), float)
         self.day_fee = 0.0
         self.bar_cash_changes = 0.0
 
@@ -132,7 +132,7 @@ class StockAccount:
 
     def check_buy_orders(self, volumes: np.array, prices: np.array):
         # fill sell orders by 0
-        filled_volumes = np.maximum(volumes, np.zeros((self.n-1), np.float))
+        filled_volumes = np.maximum(volumes, np.zeros((self.n-1), float))
         # 不包含最后一项(MONEY项)
         expected_buy_cash = np.sum((filled_volumes * prices))
         assert self.available > np.sum(expected_buy_cash) * \
@@ -205,7 +205,7 @@ class StockAccount:
             1. 先根据self.sellable_volumes 进行卖出，以获得更多的cash
             2. 再根据self.available 决定买入量
         '''
-        volumes = volumes.astype(np.float)
+        volumes = volumes.astype(float)
         assert len(volumes) == self.n
         if bar_id == 0:
             self.day_init(bar['pre_day_close'])
@@ -231,11 +231,11 @@ class StockAccount:
         self.volumes = np.around(self.volumes + volumes, 6)
         # 可卖， 减去卖出的部分
         self.sellable_volumes += np.minimum(volumes,
-                                            np.zeros((self.n), np.float))
+                                            np.zeros((self.n), float))
         self.sellable_volumes = np.around(self.sellable_volumes, 6)
         # 冻结, 加上买进的部分
         self.frozen_volumes += np.maximum(volumes,
-                                          np.zeros((self.n), np.float))
+                                          np.zeros((self.n), float))
         logger.info(self.volumes[-1])
         logger.info(self.available)
         assert self.volumes[-1] == self.available
