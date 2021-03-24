@@ -1,8 +1,5 @@
-![Test](https://github.com/tradingAI/tenvs/workflows/Test/badge.svg?branch=master)
-![Docker](https://github.com/tradingAI/tenvs/workflows/Docker/badge.svg?branch=master)
-[![PyPI version](https://badge.fury.io/py/tenvs.svg)](https://badge.fury.io/py/tenvs)
-[![codecov](https://codecov.io/gh/iminders/tenvs/branch/main/graph/badge.svg?token=3OPPSXMOW1)](https://codecov.io/gh/iminders/tenvs)
-# tenvs
+# tenvs![Test](https://github.com/tradingAI/tenvs/workflows/Test/badge.svg?branch=master)![Docker](https://github.com/tradingAI/tenvs/workflows/Docker/badge.svg?branch=master)[![PyPI version](https://badge.fury.io/py/tenvs.svg)](https://badge.fury.io/py/tenvs)[![codecov](https://codecov.io/gh/iminders/tenvs/branch/main/graph/badge.svg?token=3OPPSXMOW1)](https://codecov.io/gh/iminders/tenvs)
+
 
 
 基于[OpenAI Gym](https://gym.openai.com/)的程序化交易环境模拟器, 旨在为沪深A股基于增强学习的交易算法提供方便使用, 接近真实市场的交易环境
