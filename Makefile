@@ -6,6 +6,7 @@ install:
 test:
 	python3 -m pytest --cov-report=xml:docs/cov/report.xml --cov=tenvs
 	coverage report -m
+	flake8 .
 
 update:
 	git pull origin main
