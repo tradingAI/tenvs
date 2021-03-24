@@ -194,9 +194,9 @@ class StockAccount:
             opens.shape: (self.n,)
             pre_day_close.shape: (self.n)
             closes.shape: (self.n,)
-            highs.shape: (self.n,) # 可选
-            lows.shape: (self.n,) # 可选
-            vwap.shape: (self.n,) # 可选
+            highs.shape: (self.n,) # 暂不需要
+            lows.shape: (self.n,) # 暂不需要
+            vwap.shape: (self.n,) # 暂不需要
 
         (默认)保守交易:
             1. 先根据self.available 决定买入量
