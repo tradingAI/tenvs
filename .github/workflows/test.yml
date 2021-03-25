@@ -73,6 +73,6 @@ jobs:
       - name: Finished
         run: |
           pip3 install --upgrade coveralls
-          coveralls --finish
+          coveralls --rcfile=docs/cov/coveragerc --finish
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
