@@ -45,13 +45,7 @@ jobs:
           pip install -e .
           python -m pytest --cov-report=xml:docs/cov/report.xml --cov=tenvs
           coverage report -m
-
-      - name: Upload coverage data to coveralls.io
-        run: coveralls --rcfile=docs/cov/.coveragerc
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          COVERALLS_FLAG_NAME: ${{ matrix.test-name }}
-          COVERALLS_PARALLEL: true
+          coveralls --rcfile=docs/cov/.coveragerc
 
       - name: Lint with flake8
         # pip install flake8
@@ -63,16 +57,3 @@ jobs:
         with:
           token: ${{secrets.CODECOV_TOKEN}}
           file: docs/cov/report.xml
-
-  coveralls:
-    name: Indicate completion to coveralls.io
-    needs: test
-    runs-on: ubuntu-latest
-    container: python:3-slim
-    steps:
-      - name: Finished
-        run: |
-          pip3 install --upgrade coveralls
-          coveralls --finish
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
