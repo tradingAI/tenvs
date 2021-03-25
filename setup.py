@@ -16,6 +16,7 @@ with open("README.md", "r", encoding="utf8") as fh:
 def read_install_requires():
     reqs = [
         'beautifulsoup4',
+        'coveralls',
         'flake8',
         'gym',
         'lxml',
@@ -23,6 +24,7 @@ def read_install_requires():
         'numpy',
         'pytest',
         'pytest-cov',
+        'PyYAML',
         'pandas',
         'requests',
         'scipy',
