@@ -55,3 +55,8 @@ jobs:
         with:
           token: ${{secrets.CODECOV_TOKEN}}
           file: docs/cov/report.xml
+
+      - name: Coveralls
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
