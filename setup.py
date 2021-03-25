@@ -24,6 +24,7 @@ def read_install_requires():
         'numpy',
         'pytest',
         'pytest-cov',
+        'PyYAML',
         'pandas',
         'requests',
         'scipy',

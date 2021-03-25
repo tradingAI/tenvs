@@ -8,6 +8,7 @@ numpy
 pandas
 pytest
 pytest-cov
+PyYAML
 requests
 scipy
 simplejson
