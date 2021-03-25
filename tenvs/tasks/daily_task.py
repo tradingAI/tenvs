@@ -10,8 +10,10 @@ class DailyTask:
     n_step = 0
     current_step = 0
     timestamps = []
-    # 开市，休市
+    # 开市=1，休市=0
     status = None  # np.array([n_step, code_num])
+    # 开盘价
+    opens = None  # np.array([n_step, code_num])
     # 收盘价
     closes = None  # np.array([n_step, code_num])
     # 最高价
@@ -36,6 +38,7 @@ class RandomDailyTask(DailyTask):
     preclose = np.ones(shape=(n_step, code_num)) * 10
     rng = default_rng(0)
     closes = rng.standard_normal(size=(n_step, code_num)) + 10.0
+    opens = closes + rng.standard_normal(size=(n_step, code_num))
     highs = closes + rng.standard_normal(size=(n_step, code_num))
     lows = closes - rng.standard_normal(size=(n_step, code_num))
     features = rng.standard_normal(

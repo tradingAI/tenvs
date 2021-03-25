@@ -1,0 +1,5 @@
+[run]
+omit = 
+    tgym/*_test.py
+    *__init__.py
+    tgym/*/logger.py

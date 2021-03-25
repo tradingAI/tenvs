@@ -15,4 +15,4 @@ logs/
 .pytest_cache
 .coverage
 tmp/
-docs/cov
+docs/cov/report.xml

@@ -1,4 +1,4 @@
-# tenvs![Test](https://github.com/tradingAI/tenvs/workflows/Test/badge.svg?branch=master)![Docker](https://github.com/tradingAI/tenvs/workflows/Docker/badge.svg?branch=master)[![PyPI version](https://badge.fury.io/py/tenvs.svg)](https://badge.fury.io/py/tenvs)[![codecov](https://codecov.io/gh/iminders/tenvs/branch/main/graph/badge.svg?token=3OPPSXMOW1)](https://codecov.io/gh/iminders/tenvs)
+# tenvs![Test](https://github.com/tradingAI/tenvs/workflows/Test/badge.svg?branch=master)![Docker](https://github.com/tradingAI/tenvs/workflows/Docker/badge.svg?branch=master)[![PyPI version](https://badge.fury.io/py/tenvs.svg)](https://badge.fury.io/py/tenvs)[![Coverage Status](https://coveralls.io/repos/github/tradingAI/tenvs/badge.svg?branch=task)](https://coveralls.io/github/tradingAI/tenvs?branch=task)
 
 
 
@@ -11,12 +11,12 @@
 - 自动从tushare下载数据，已经下载的数据不会重复下载(默认目录"/tmp/tenvs")
 - 撮合规则:
 
-  - 基于最高，最低价成交
-  - 对交易量不作限制
+  - 1. 基于最高，最低价成交, 对交易量不作限制
+  - 2. 基于`bar open price` 成交, 根据余额，限制成交
 
 - 下单按照A股的规则，买卖按照1手100股为基本交易单位
 
-- 有拆分时，会根据复权因子对持仓进行相应的倍增, 以保持与真实市场一致
+- 有拆分时，会根据市值对持仓进行相应的倍增, 以保持与真实市场一致
 
 - step() 比OpenAI gym多返回一个名为rewards的list, 包含每支股票的reward, 以方便Multi-Agent算法实现
 

@@ -1,4 +1,5 @@
 beautifulsoup4
+coveralls
 flake8
 gym
 lxml
@@ -7,6 +8,7 @@ numpy
 pandas
 pytest
 pytest-cov
+PyYAML
 requests
 scipy
 simplejson
