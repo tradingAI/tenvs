@@ -47,7 +47,7 @@ jobs:
           coverage report -m
 
       - name: Upload coverage data to coveralls.io
-        run: coveralls --rcfile=docs/cov/coveragerc
+        run: coveralls --rcfile=docs/cov/.coveragerc
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           COVERALLS_FLAG_NAME: ${{ matrix.test-name }}
@@ -73,6 +73,6 @@ jobs:
       - name: Finished
         run: |
           pip3 install --upgrade coveralls
-          coveralls --rcfile=docs/cov/coveragerc --finish
+          coveralls --finish
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
