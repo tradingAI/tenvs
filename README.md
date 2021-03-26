@@ -1,4 +1,4 @@
-# tenvs![Test](https://github.com/tradingAI/tenvs/workflows/Test/badge.svg?branch=master)![Docker](https://github.com/tradingAI/tenvs/workflows/Docker/badge.svg?branch=master)[![PyPI version](https://badge.fury.io/py/tenvs.svg)](https://badge.fury.io/py/tenvs)[![Coverage Status](https://coveralls.io/repos/github/tradingAI/tenvs/badge.svg?branch=task)](https://coveralls.io/github/tradingAI/tenvs?branch=task)
+# tenvs![Test](https://github.com/tradingAI/tenvs/workflows/Test/badge.svg?branch=master)![Docker](https://github.com/tradingAI/tenvs/workflows/Docker/badge.svg?branch=master)[![PyPI version](https://badge.fury.io/py/tenvs.svg)](https://badge.fury.io/py/tenvs)[![Coverage Status](https://coveralls.io/repos/github/tradingAI/tenvs/badge.svg?branch=task)](https://coveralls.io/github/tradingAI/tenvs?branch=task)![Platform](https://img.shields.io/badge/platform-linux%7Cwindows%7Cmacos-blue)
 
 
 
