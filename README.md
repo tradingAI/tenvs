@@ -57,8 +57,7 @@ export TUSHARE_TOKEN=YOUR_TOKEN
 
 ## Contribution
 - Fork this repo
-- Add or change code && **Please add tests for changes**
-- Test: `docker-compose up`
+- Unit Test && flake8 check: `docker-compose up`
 - Send pull request
 
 ### 扩展Scenario
